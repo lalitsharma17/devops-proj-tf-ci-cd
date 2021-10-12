@@ -1,10 +1,8 @@
-# Simple DevOps Project
+#DevOps
 
 
 
-This Repository is a collection of Implementation documents. 
-
-### Purpose:
+### THis project Purpose:
 By following this repository you can able to setup a DevOps CI/CD Pipeline using
 - git
 - Jenkins

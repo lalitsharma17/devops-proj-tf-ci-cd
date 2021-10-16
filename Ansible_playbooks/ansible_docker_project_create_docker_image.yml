@@ -3,7 +3,7 @@
 - hosts: all
   become: true
   tasks:
-  - name: building docker image
+  - name: building docker image using war file sitting here
     command: docker build -t my-devops-image .
     args:
       chdir: /opt/docker

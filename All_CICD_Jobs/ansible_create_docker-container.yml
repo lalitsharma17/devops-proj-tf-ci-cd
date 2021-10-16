@@ -1,0 +1,9 @@
+# Option-1 : Createting docker container using command module 
+---
+- hosts: all
+  become: true
+
+  tasks:
+  - name: creating docker image using docker command
+    command: docker run -d --name my-devops-container -p 8080:8080 my-devops-image
+	

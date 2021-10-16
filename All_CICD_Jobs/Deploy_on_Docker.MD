@@ -1,19 +1,11 @@
-# Deploy on a docker container using Jenkins 
-# `Deploy_on_Container`
+# Deploy on Docker host server using Jenkins 
+# *Jenkins Job name:* `Deploy_on_Docker_Host`
 
 ### Pre-requisites
 
 1. Jenkins server 
-1. Docker-host server 
-1. `Dockerfile` under *`/home/dockeradmin`* in user home directory on docker host 
-   ```sh 
-   # Pull tomcat latest image from dockerhub 
-   From tomcat
-   # Maintainer
-   MAINTAINER "AR Shankar" 
+1. Docker-host Server 
 
-   # copy war file on to container 
-   COPY ./webapp.war /usr/local/tomcat/webapps
 ### Integration between Docker-host and Jenkins
 
 Install "publish Over SSH"
@@ -31,13 +23,13 @@ Enable connection between Docker-host and Jenkins
        -  `Advanced` > chose `Use password authentication, or use a different key`
 		 - password: `*******`
  
-### Steps to create "Deploy_on_Container" Jenkin job
-#### From Jenkins home page select "New Item"
-   - Enter an item name: `Deploy_on_Container`
-     - Copy from: `Deploy_on_Docker_Host`
+### Steps to create "Deploy_on_Docker_Host" Jenkin job
+ #### From Jenkins home page select "New Item"
+   - Enter an item name: `Deploy_on_Docker_Host`
+     - Copy from: `Deploy_on_Tomcat_Server`
      
    - *Source Code Management:*
-      - Repository: `https://github.com/yankils/hello-world.git`
+      - Repository: `https://github.com/lalitsharma17/base-source-code.git`
       - Branches to build : `*/master`  
    - *Poll SCM* :      - `* * * *`
 
@@ -53,11 +45,6 @@ Enable connection between Docker-host and Jenkins
             - Source files: `webapp/target/*.war`
 	       - Remove prefix: `webapp/target`
 	       - Remote directory: `//home//ansadmin` or `.`
-	       - Exec command: 
-                ```sh 
-                cd /home/dockeradmin;
-                docker build -t simple-devops-image .; 
-                docker run -d --name simple-devops-container -p 8080:8080 simple-devops-image;
-                ```
+	 
 
 Save and run the job now.

@@ -24,7 +24,7 @@
 
      tasks:
      - name: building docker image
-       command: "docker build -t simple-devops-image ." 
+       command: "docker build -t my-devops-image ." 
        args:
          chdir: /opt/docker
    ```
@@ -36,7 +36,7 @@
 
      tasks:
      - name: creating docker image using docker command
-       command: docker run -d --name simple-devops-container -p 8080:8080 simple-devops-image
+       command: docker run -d --name my-devops-container -p 8080:8080 my-devops-image
    ```
 
 ### Integration between Ansible-control-node and Jenkins
@@ -62,7 +62,7 @@ Enable connection between Ansible-control-node and Jenkins
      - Copy from: `Deploy_on_Container`
      
    - *Source Code Management:*
-      - Repository: `https://github.com/yankils/hello-world.git`
+      - Repository: `https://github.com/lalitsharma17/base-source-code.git`
       - Branches to build : `*/master`  
    - *Poll SCM* :      - `* * * *`
 
@@ -80,7 +80,7 @@ Enable connection between Ansible-control-node and Jenkins
 	       - Remote directory: `//opt//docker`
 	       - Exec command: 
                 ```sh 
-                ansible-playbook -i /opt/docker/hosts /opt/docker/create-docker-image.yml;
+                ansible-playbook -i /opt/docker/hosts /opt/docker/ansible_create-docker-image.yml;
                 ```
 
 Save and run the job now.

@@ -6,16 +6,16 @@
 1. Jenkins server 
 1. Docker-host server 
 1. Ansible server
-1. `Dockerfile` under *`/opt/docker`* on Ansible server **[Get Help Here]()**
+1. `Dockerfile` under *`/opt/docker`* on Ansible server 
    ```sh 
    # Pull tomcat latest image from dockerhub 
    From tomcat
    # Maintainer
-   MAINTAINER "AR Shankar" 
+   MAINTAINER "Sharma"
 
    # copy war file on to container 
    COPY ./webapp.war /usr/local/tomcat/webapps
-1. Create `create-docker-image.yml` unser *`/opt/docker`* on Ansible server **[Get Help Here]()**
+1. Create `create-docker-image.yml` unser *`/opt/docker`* on Ansible server 
    ```sh
    ---
    - hosts: all

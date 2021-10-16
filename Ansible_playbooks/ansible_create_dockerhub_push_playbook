@@ -1,0 +1,22 @@
+###coming soon
+
+
+---
+- hosts: all
+  become: true
+  tasks:
+ 
+  - name: building docker image using war file
+    command: docker build -t my-devops-image:latest .
+    args:
+      chdir: /opt/docker
+      
+  - name: creating tag to image
+    command: docker tag my-devlop-image lalitsharma17/newimage-oct
+  - name: push image on to dockerhub
+    command: docker push lalitsharma17/newimage-oct
+
+  - name: creating docker image
+    command: docker run -d --name my-devops-container -p 8080:8080 my-devops-image
+    
+    # remove existing images from the server with same name

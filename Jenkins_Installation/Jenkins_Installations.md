@@ -15,3 +15,8 @@
 -	
 -	GIT plugins install on the Jenkins usign web access.
 -	Setup GIT path on Jenkins tools configuration
+              
+-     Setup JAVA and MAVEN env varibles:
+              
+              - Set JAVA_HOME path
+              - Set MAVEN PATH

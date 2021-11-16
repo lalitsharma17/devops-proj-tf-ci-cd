@@ -44,7 +44,7 @@
 1. Create a Route53 private hosted zone (you can create Public hosted zone if you have a domain)
    ```sh
    Routeh53 --> hosted zones --> created hosted zone  
-   Domain Name: valaxy.net
+   Domain Name: sharma123.net
    Type: Private hosted zone for Amazon VPC. Make sure you are chosing right VPC if you have multiple
    ```
 
@@ -54,7 +54,7 @@
    ```
 1. Expose environment variable:
    ```sh
-    export KOPS_STATE_STORE=s3://demo.k8s.valaxy.net
+    export KOPS_STATE_STORE=s3://demo.k8s.sharma123.net
    ```
 
 1. Create sshkeys before creating cluster
@@ -64,7 +64,7 @@
 
 1. Create kubernetes cluster definitions on S3 bucket
    ```sh
-   kops create cluster --cloud=aws --zones=ap-south-1b --name=demo.k8s.valaxy.net --dns-zone=valaxy.net --dns private 
+   kops create cluster --cloud=aws --zones=ap-south-1b --name=demo.k8s.valaxy.net --dns-zone=sharma123.net --dns private 
     ```
 
 1. Create kubernetes cluser
@@ -99,7 +99,7 @@
     ```sh
     kubectl run --generator=run-pod/v1 sample-nginx --image=nginx --replicas=2 --port=80
     #kubectl run sample-nginx --image=nginx --replicas=2 --port=80
-    # kubectl run simple-devops-project --image=yankils/simple-devops-image --replicas=2 --port=8080
+    # kubectl run simple-devops-project --image=lalitsharma17/simple-devops-image --replicas=2 --port=8080
     kubectl get pods
     kubectl get deployments
    ```
